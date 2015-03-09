@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+<head>
+  <style type="text/css">
+<!--
+   .vermelho {
+      color : red;
+   }
+-->
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+
+   <h1>Cadastro de livros</h1>
+   <br />
+   <hr />
+   <br />
+   
+   <h:form>
+   		<h:messages class="vermelho"></h:messages>
+        <h:panelGrid columns="2">
+			 <h:outputLabel for="nome" value="Nome"></h:outputLabel>
+			 <h:inputText required="true" requiredMessage="Nome é obrigatório" value="#{livroMB.livro.nome}" id="nome" size="80" >
+			 		<f:validateLength minimum="3"  ></f:validateLength>
+			 		<f:validateRegex pattern="[a-zA-Z]"></f:validateRegex>
+			 </h:inputText>
+			 
+			 <h:outputLabel for="autor" value="Autor"></h:outputLabel>
+			 <h:inputText required="true" requiredMessage="Autor é obrigatório"  value="#{livroMB.livro.autor}" id="autor" size="80"></h:inputText>
+			 
+			 <h:commandButton action="#{livroMB.cadastrar}" value="Cadastrar"></h:commandButton>      
+			        
+        
+        </h:panelGrid>
+   </h:form>
+   
+
+</body>
+</html>
