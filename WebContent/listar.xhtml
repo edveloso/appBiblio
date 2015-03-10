@@ -1,21 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"	
->
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
 </head>
 <body>
 
-    <h1>Lista de livros</h1>
-    <br />
-    <hr />
-    <br />
-    
-    <h:outputLabel value="Livro enviado #{livroMB.livro.nome}"></h:outputLabel>
+	<div style="background-color: blue; padding: 20px; color: white">
+		<h1>Lista de livros</h1>
+		<br />
+	</div>
+	<hr />
+	<br />
+
+	<h:dataTable style="width: 90%;" cellpadding="1" 
+							cellspacing="1" border="1"
+				value="#{livroMB.livros}" var="livro"			
+							 >
+	    <f:facet name="header">
+	        Listagem
+	    </f:facet>
+	    
+	    <h:column>
+	    		<f:facet name="header">
+	    		   Nome
+	    		</f:facet>
+	    		<h:outputText value="#{livro.nome}"></h:outputText>
+	    </h:column>
+	    
+	    <h:column>
+	    		<f:facet name="header">
+	    		   Autor
+	    		</f:facet>
+	    		<h:outputText value="#{livro.autor}"></h:outputText>
+	    </h:column>
+	    
+	    
+	    
+	</h:dataTable>
+	
+	<div style="background-color: blue; color: white; padding: 20px;">
+	   @copyright 2015
+	</div>
+
 
 </body>
 </html>

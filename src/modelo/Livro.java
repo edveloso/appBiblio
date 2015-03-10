@@ -7,6 +7,14 @@ public class Livro {
 	
 	private String autor;
 
+	public Livro(){
+	}
+	
+	public Livro(String nome, String autor){
+		this.nome = nome;
+		this.autor = autor;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
