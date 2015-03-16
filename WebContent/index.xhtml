@@ -17,9 +17,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-   <h1>Cadastro de livros</h1>
-   <br />
+	<div style="background-color: blue; color: white; padding: 20px;">
+   		<h1>Cadastro de livros</h1>
+   		<br />
+   </div>
    <hr />
    <br />
    
@@ -27,20 +28,64 @@
    		<h:messages class="vermelho"></h:messages>
         <h:panelGrid columns="2">
 			 <h:outputLabel for="nome" value="Nome"></h:outputLabel>
-			 <h:inputText required="true" requiredMessage="Nome é obrigatório" value="#{livroMB.livro.nome}" id="nome" size="80" >
+			 
+			 <h:inputText required="true" 
+			 requiredMessage="Nome é obrigatório" value="#{livroMB.livro.nome}" id="nome" size="80" >
 			 		<f:validateLength minimum="3"  ></f:validateLength>
-			 		<f:validateRegex pattern="[a-zA-Z]"></f:validateRegex>
+			 		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
 			 </h:inputText>
 			 
 			 <h:outputLabel for="autor" value="Autor"></h:outputLabel>
 			 <h:inputText required="true" requiredMessage="Autor é obrigatório"  value="#{livroMB.livro.autor}" id="autor" size="80"></h:inputText>
 			 
-			 <h:commandButton action="#{livroMB.cadastrar}" value="Cadastrar"></h:commandButton>      
+			 
+			 <h:outputLabel value="Tipo Livro" for="tipoLivro" />
+			 
+			 <h:selectOneRadio value="#{livroMB.tipoLivroSelecionado}" >
+			 	<f:selectItem itemLabel="Romance" itemValue="rm" />
+			 	<f:selectItem itemLabel="Policial" itemValue="pl" />
+			 	<f:selectItem itemLabel="Ação" itemValue="ac" />
+			 </h:selectOneRadio>
+			 
+			 <h:outputLabel   value="Editora"  />
+			 <h:selectOneMenu value="#{livroMB.editoraSelecionada}" >
+			 	<f:selectItem itemLabel="---Selecione----" itemValue="" />
+			    <f:selectItems value="#{livroMB.editoras}" />
+			 </h:selectOneMenu>
+			 
+			 <h:outputLabel value="Comentários" />
+			 <h:inputTextarea value="#{livroMB.comentario}" rows="6" cols="80" >
+			 </h:inputTextarea>
+			 
+			 <h:outputLabel value="" />
+			 <h:commandButton 
+			 		action="#{livroMB.cadastrar}" 
+			 		value="Cadastrar"
+			 		style="color: white; font-size: 20px;
+			 		      width: 50%;
+			 		 background-color: black"
+			 		></h:commandButton>      
 			        
         
         </h:panelGrid>
    </h:form>
    
-
+   
+   <!-- footer -->
+   <br />
+	<div style="background-color: blue; color: white;">
+	    @copyright 2015
+	</div>
+	
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
