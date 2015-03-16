@@ -1,7 +1,15 @@
 package modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Livro {
 
+	@Id @GeneratedValue
+	private Integer codigo;
+	
 	//criem gets e sets
 	private String nome;
 	
@@ -29,6 +37,14 @@ public class Livro {
 
 	public void setAutor(String autor) {
 		this.autor = autor;
+	}
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 	
 	

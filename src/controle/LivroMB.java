@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import modelo.Livro;
+import modelo.persistencia.LivroDAO;
 
 
 @ManagedBean(name="livroMB")
@@ -15,7 +16,8 @@ public class LivroMB {
 
 	//dados da tela
 	private Livro livro = new Livro();
-	//private LivroDAO dao = new LivroDAO();
+	//TODO alteração 
+	private LivroDAO dao = new LivroDAO();
 	private List<Livro> livros;
 	
 	private List<String> editoras;
@@ -44,7 +46,8 @@ public class LivroMB {
 	//acoes do caso de uso
 	public String cadastrar(){
 		//fazer o dao chamar salvar livro
-		//dao.salvar(livro);
+		//TODO alteração
+		dao.salvar(livro);
 		return "listar";
 	}
 	
@@ -98,6 +101,8 @@ public class LivroMB {
 
 
 	public List<Livro> getLivros() {
+		//TODO alteração
+		livros = dao.todos();
 		return livros;
 	}
 
