@@ -4,7 +4,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       >
-<head>
+<h:head>
   <style type="text/css">
 <!--
    .vermelho {
@@ -15,13 +15,22 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
-</head>
-<body>
+</h:head>
+<h:body>
 
 
  <div style="background-color: blue; color: white; padding: 20px;">
-   <h1>Cadastro de livros</h1>
+   <h1> <h:outputText value="#{msg['cadastro.livro']}" /></h1>
    <br />
+
+
+<h:form>
+     <h:outputText value="#{msg['idoma']}" />	
+	<h:selectOneMenu value="#{lang.localeInformed}" onchange="submit()" 
+	valueChangeListener="#{lang.mudaIdioma}">
+	   <f:selectItems  value="#{lang.linguagens}"/>
+	</h:selectOneMenu>
+	</h:form>
  </div>  
    <hr />
    <br />
@@ -30,30 +39,30 @@
    		<h:messages class="vermelho"></h:messages>
    		
         <h:panelGrid columns="2">
-			 <h:outputLabel for="nome" value="Nome"></h:outputLabel>
-			 <h:inputText required="true" requiredMessage="Nome é obrigatório" value="#{livroMB.livro.nome}" id="nome" size="80" >
+			 <h:outputLabel for="nome" value="#{msg['nome']}"></h:outputLabel>
+			 <h:inputText required="true" requiredMessage="#{msg['nome.obrigatório']}" value="#{livroMB.livro.nome}" id="nome" size="80" >
 			 		<f:validateLength minimum="3"  ></f:validateLength>
 			 		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
 			 </h:inputText>
 			 
-			 <h:outputLabel for="autor" value="Autor"></h:outputLabel>
-			 <h:inputText required="true" requiredMessage="Autor é obrigatório"  
+			 <h:outputLabel for="autor" value="#{msg.autor}"></h:outputLabel>
+			 <h:inputText required="true" requiredMessage="#{msg['autor.obrigatório']}"  
 			     value="#{livroMB.livro.autor}" id="autor" size="80"></h:inputText>
 			 
-			 <h:outputLabel value="Tipo Livro" />
+			 <h:outputLabel value="#{msg['tipo.livro']}" />
 			 <h:selectOneRadio value="#{livroMB.tipoLivroSelecionado}" >
 			     <f:selectItem itemLabel="Romance" itemValue="rm" />
 			     <f:selectItem itemLabel="Policial" itemValue="pl"  />
 			     <f:selectItem itemLabel="Ação" itemValue="ac"  />			     
 			 </h:selectOneRadio>
 			 
-			 <h:outputLabel value="Editora" />
+			 <h:outputLabel value="#{msg.editora}" />
 			 <h:selectOneMenu value="#{livroMB.editoraSelecionada}">
-			 	<f:selectItem itemLabel="----Selecione-----" itemValue=""  />
+			 	<f:selectItem itemLabel="----#{msg.selecione}-----" itemValue=""  />
 			    <f:selectItems value="#{livroMB.editoras}"  ></f:selectItems>
 			 </h:selectOneMenu>
 			 
-			 <h:outputLabel value="Comentário"  />
+			 <h:outputLabel value="#{msg.comentario}"  />
 			 <h:inputTextarea value="#{livroMB.comentario}" 
 			 			rows="6"  cols="80" ></h:inputTextarea>
 			 
@@ -61,7 +70,7 @@
 			 <h:commandButton style="width:50%; color: white; 
 			 			color-size: 20px; background-color: black" 
 			 			action="#{livroMB.cadastrar}" 
-			 			value="Cadastrar"></h:commandButton>      
+			 			value="#{msg.cadastrar}"></h:commandButton>      
 			        
         
         </h:panelGrid>
@@ -73,5 +82,5 @@
        @copyright 2015 Uni
    </div>
 
-</body>
+</h:body>
 </html>
