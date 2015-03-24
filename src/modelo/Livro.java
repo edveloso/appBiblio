@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+
+// vem do pacote javax.persistence
 @Entity
 public class Livro {
 

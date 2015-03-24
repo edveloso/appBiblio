@@ -20,8 +20,18 @@
 
 
  <div style="background-color: blue; color: white; padding: 20px;">
-   <h1>Cadastro de livros</h1>
+   <h1> <h:outputText value="#{msg['cad.livros']}" /> </h1>
    <br />
+   
+   <h:form>
+			<h:outputText value="#{msg.idioma} " />
+       <h:selectOneMenu onchange="submit()"  
+       			valueChangeListener="#{lang.mudaIdioma}"  >
+       		<f:selectItems value="#{lang.idiomas}" />
+       </h:selectOneMenu>
+   
+   </h:form>
+   
  </div>  
    <hr />
    <br />
@@ -58,7 +68,7 @@
 			 			rows="6"  cols="80" ></h:inputTextarea>
 			 
 			 <h:outputLabel value=""></h:outputLabel>
-			 <h:commandButton style="width:50%; color: white; 
+			 <h:commandButton  style="width:50%; color: white; 
 			 			color-size: 20px; background-color: black" 
 			 			action="#{livroMB.cadastrar}" 
 			 			value="Cadastrar"></h:commandButton>      
